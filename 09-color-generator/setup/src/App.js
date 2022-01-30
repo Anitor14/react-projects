@@ -20,6 +20,7 @@ function App() {
   };
   return (
     <>
+      {/* This is called a fragment */}
       <section className="container">
         <h3>Color Generator</h3>
         <form onSubmit={handleSubmit}>
