@@ -6,9 +6,12 @@ import { useGlobalContext } from "./context";
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
   const displaySubmenu = (e) => {
-    console.log("hello world");
-    openSubmenu();
-  }; 
+    const page = e.target.textContent; // this gets the textContent from the targeted node.
+    const tempBtn = e.target.getBoundingClientRect(); // This get the various positional coordinates of the targeted node.
+    const center = (tempBtn.left + tempBtn.right) / 2; // We are getting the center of the node.
+    const bottom = tempBtn.bottom - 3;
+    openSubmenu(page, { center, bottom }); // running the openSubMenu and sending the page, as well as the center and bottom coordinates to the openSubMenu function.
+  };
   return (
     <nav className="nav">
       <div className="nav-center">
